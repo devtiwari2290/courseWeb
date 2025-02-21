@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+
+ /* Custom hover effect using Tailwind's group class */
+ .button::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full  bg-black transform -translate-x-full transition-transform duration-300;
+}
+
+.button:hover::before {
+  @apply translate-x-0;
+}
+
+.navbar{
+  font-family: "Comic Neue", cursive;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.home{
+  font-family: "Comic Neue", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.about{
+  font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+  
+
+.services{
+  font-family: "SUSE", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.footer{
+  font-family: "Parkinsans", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.menu-link{
+  font-family: "Comic Neue", cursive;
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+ 
