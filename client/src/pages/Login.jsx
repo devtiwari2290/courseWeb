@@ -23,7 +23,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   // useAuth Context
-  const { storeTokenInLS } = useAuth();
+  const { storeTokenInLS, API } = useAuth();
 
   // Form Submission
   const handleSubmit = (e) => {
@@ -44,15 +44,11 @@ const Login = () => {
   // Passing Login Data in Database
   const LoginUser = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
-        user,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.post(`${API}/api/auth/login`, user, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (response.status === 201) {
         storeTokenInLS(response.data.token);

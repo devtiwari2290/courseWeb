@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminImage from "../assets/AdminProfile.jpg";
 import { FaUser } from "react-icons/fa";
 import { useAuth } from "../store/auth";
@@ -24,10 +24,14 @@ const skills = [
 
 const AdminDashBoard = () => {
   const { user } = useAuth();
-
   if (!user) {
     toast.error("Please login to access this page");
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    toast.success("Welcome to Admin Dashboard");
+  });
 
   return (
     <div>

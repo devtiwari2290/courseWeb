@@ -13,20 +13,17 @@ const AdminUpdate = () => {
   });
 
   const params = useParams();
-  const { authorizationToken } = useAuth();
+  const { authorizationToken, API } = useAuth();
 
   // Fetch Single User Data
   const getSingleUserData = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:3000/api/admin/users/${params.id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: authorizationToken,
-          },
-        }
-      );
+      const response = await axios.get(`${API}/api/admin/users/${params.id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: authorizationToken,
+        },
+      });
 
       if (response.status === 200 && response.data?.singleUser) {
         setData(response.data.singleUser);
@@ -57,7 +54,7 @@ const AdminUpdate = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/admin/users/update/${params.id}`,
+        `${API}/api/admin/users/update/${params.id}`,
         updatedData, // Send only necessary fields
         {
           headers: {

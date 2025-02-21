@@ -116,6 +116,8 @@ export const AuthProvider = ({ children }) => {
   const [services, setServices] = useState([]);
   const authorizationToken = token ? `Bearer ${token}` : "";
 
+  // Api Call
+  const API = import.meta.env.VITE_APP_URI_API;
   const storeTokenInLS = (serverToken) => {
     localStorage.setItem("token", serverToken);
     setToken(serverToken);
@@ -136,7 +138,7 @@ export const AuthProvider = ({ children }) => {
 
     try {
       setIsLoading(true);
-      const response = await axios.get("http://localhost:3000/api/auth/user", {
+      const response = await axios.get(`${API}/api/auth/user`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: authorizationToken,
@@ -160,9 +162,7 @@ export const AuthProvider = ({ children }) => {
 
   const getServices = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:3000/api/data/service"
-      );
+      const response = await axios.get(`${API}/api/data/service`);
       if (response.status === 200) {
         setServices(response.data.services || []);
       }
@@ -186,6 +186,7 @@ export const AuthProvider = ({ children }) => {
         authorizationToken,
         isLoading,
         isAdmin,
+        API,
       }}
     >
       {children}

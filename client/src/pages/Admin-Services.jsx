@@ -8,21 +8,17 @@ import CourseImage from "../assets/course.jpg"; // Ensure this path is correct
 
 const AdminServices = () => {
   // Authorization Check
-  const { authorizationToken } = useAuth();
-  const { services } = useAuth();
+  const { authorizationToken, services, API } = useAuth();
 
   // Get All Services
   const getAllServices = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:3000/api/admin/services",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: authorizationToken,
-          },
-        }
-      );
+      const response = await axios.get(`${API}/api/admin/services`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: authorizationToken,
+        },
+      });
       // Check if services exist
       if (!response.data.services || response.data.services.length === 0) {
         toast.error("No services found");

@@ -7,11 +7,11 @@ import UserImage from "../assets/UserProfile.avif";
 
 const UserProfile = () => {
   const [userData, setUserData] = useState(null);
-  const { authorizationToken } = useAuth();
+  const { authorizationToken, API } = useAuth();
 
   const getSingleUserData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/auth/user", {
+      const response = await axios.get(`${API}/api/auth/user`, {
         headers: { Authorization: authorizationToken },
       });
       if (response.status === 200 && response.data?.userData) {

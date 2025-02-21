@@ -25,7 +25,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   // useAuth Context
-  const { storeTokenInLS } = useAuth();
+  const { storeTokenInLS, API } = useAuth();
 
   // Form Submission
   const handleSubmit = (e) => {
@@ -39,7 +39,7 @@ const Register = () => {
   const RegisterUser = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        `${API}/api/auth/register`,
         {
           username: user.username,
           email: user.email,

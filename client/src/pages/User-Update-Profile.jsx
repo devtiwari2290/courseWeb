@@ -13,13 +13,13 @@ const UserUpdateProfile = () => {
   });
 
   const params = useParams();
-  const { authorizationToken } = useAuth();
+  const { authorizationToken, API } = useAuth();
 
   // Fetch Single User Data
   const getSingleUserData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/auth/user/profile/${params.id}`,
+        `${API}/api/auth/user/profile/${params.id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const UserUpdateProfile = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/auth/user/profile/update/${params.id}`,
+        `${API}/api/auth/user/profile/update/${params.id}`,
         updatedData,
         {
           headers: {

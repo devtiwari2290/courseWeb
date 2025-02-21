@@ -9,20 +9,17 @@ const AdminUsers = () => {
   const [users, setUsers] = useState([]);
 
   // Get Token
-  const { authorizationToken } = useAuth();
+  const { authorizationToken, API } = useAuth();
 
   // Get All Users Data
   const getAllUsers = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:3000/api/admin/users",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: authorizationToken,
-          },
-        }
-      );
+      const response = await axios.get(`${API}/api/admin/users`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: authorizationToken,
+        },
+      });
 
       // Check if users exist
       if (!response.data.users || response.data.users.length === 0) {
@@ -41,7 +38,7 @@ const AdminUsers = () => {
   const deleteUser = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/admin/users/delete/${id}`,
+        `${API}/api/admin/users/delete/${id}`,
         {
           headers: {
             "Content-Type": "application/json",

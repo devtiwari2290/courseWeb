@@ -9,19 +9,16 @@ const AdminContacts = () => {
   const [contactData, setContactData] = useState([]);
 
   // Authorization token
-  const { authorizationToken } = useAuth();
+  const { authorizationToken, API } = useAuth();
 
   // Get All Contacts
   const getAllContacts = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:3000/api/admin/contacts",
-        {
-          headers: {
-            Authorization: authorizationToken,
-          },
-        }
-      );
+      const response = await axios.get(`${API}/api/admin/contacts`, {
+        headers: {
+          Authorization: authorizationToken,
+        },
+      });
       //  Check if contacts exist
       if (!response.data.contacts || response.data.contacts.length === 0) {
         toast.error("No contacts found");
@@ -39,7 +36,7 @@ const AdminContacts = () => {
   const deleteContact = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/admin/contacts/delete/${id}`,
+        `${API}/api/admin/contacts/delete/${id}`,
         {
           headers: {
             "Content-Type": "application/json",

@@ -19,7 +19,7 @@ const Contact = () => {
   // Contact User Details
   const [userData, setUserData] = useState(true);
 
-  const { user } = useAuth();
+  const { user, API } = useAuth();
 
   if (user && userData) {
     setContact({
@@ -53,7 +53,7 @@ const Contact = () => {
   const ContactData = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/form/contact",
+        `${API}/api/form/contact`,
         {
           username: contact.username,
           email: contact.email,
