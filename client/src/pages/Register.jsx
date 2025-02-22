@@ -85,16 +85,16 @@ const Register = () => {
 
         {/* Form Section */}
         <div className="flex flex-col gap-1 w-full max-w-md">
-          <h1 className="text-4xl md:text-6xl font-bold text-center md:text-left">
+          <h1 className="menu-link text-4xl md:text-6xl font-bold text-center md:text-left">
             Hi there!
           </h1>
-          <p className="text-lg md:text-xl text-center md:text-left">
+          <p className="about text-lg md:text-xl text-center md:text-left">
             Welcome to CourseCo Community
           </p>
           <form
             action="/register"
             method="post"
-            className="mt-3 p-3 md:p-0"
+            className="mt-3 p-3 md:p-0 about"
             onSubmit={handleSubmit}
           >
             {/* Input Fields */}
@@ -170,13 +170,13 @@ const Register = () => {
             <div className="flex flex-col gap-1 mt-3">
               <p className="text-xs md:text-sm text-gray-500 text-center md:text-left">
                 Already have an account?{" "}
-                <Link to="/login" className="text-[#5766FF]">
+                <Link to="/login" className="menu-link text-[#5766FF]">
                   Login
                 </Link>
               </p>
               <button
                 type="submit"
-                className="bg-[#5766FF] text-white rounded-md px-5 py-2 mt-2 text-sm md:text-base"
+                className=" bg-[#5766FF] text-white rounded-md px-5 py-2 mt-2 text-sm md:text-base"
               >
                 Register
               </button>

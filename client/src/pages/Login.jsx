@@ -81,16 +81,16 @@ const Login = () => {
 
         {/* Form Section */}
         <div className="flex flex-col gap-1 w-full max-w-md rounded-xl ">
-          <h1 className="text-4xl md:text-6xl font-bold text-center md:text-left">
+          <h1 className="menu-link text-4xl md:text-6xl font-bold text-center md:text-left">
             Welcome Back!
           </h1>
-          <p className="text-lg md:text-xl text-center md:text-left">
+          <p className="about text-lg md:text-xl text-center md:text-left">
             Please login to your account
           </p>
           <form
             action="/login"
             method="post"
-            className="mt-3 p-3 md:p-0  rounded-xl"
+            className="mt-3 p-3 md:p-0  rounded-xl about"
             onSubmit={handleSubmit}
           >
             {/* Input Fields */}
@@ -130,23 +130,33 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
-            <div className="flex flex-col gap-1 mt-5 ">
+            {/* Don't have an account & Forgot Password */}
+            <div className=" flex flex-col md:flex-row justify-between mt-2">
               <p className="text-xs md:text-sm text-gray-500 text-center md:text-left">
                 Don't have an account?{" "}
-                <Link to="/register" className="text-[#5766FF]">
+                <Link to="/register" className="text-[#5766FF] menu-link">
                   {" "}
                   {/* Fixed link */}
                   Sign Up
                 </Link>
               </p>
-              <button
-                type="submit"
-                className="bg-[#5766FF] text-white rounded-md px-5 py-2 mt-2 text-sm md:text-base"
-              >
-                Login
-              </button>
+
+              <p className="menu-link text-xs md:text-sm text-red-500  text-center md:text-left">
+                <Link to="/forgot-password" className="text-red-500">
+                  {" "}
+                  {/* Fixed link */}
+                  Forgot-Password?
+                </Link>
+              </p>
             </div>
+
+            {/* Login Button */}
+            <button
+              type="submit"
+              className=" w-full max-w-md   bg-[#5766FF] text-white rounded-md px-5 py-2 mt-5 text-sm md:text-base"
+            >
+              Login
+            </button>
 
             {/* Alternative Sign-In Methods */}
             <div className="mt-10 lg:mt-10">

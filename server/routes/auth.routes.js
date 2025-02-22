@@ -16,6 +16,12 @@ router
 // Login Route
 router.route("/login").post(validate(loginSchema), authControllers.login);
 
+// Forget Password Route
+router.route("/forget-password").post(authControllers.forgetPassword);
+
+// Reset Password Route
+router.route("/reset-password").post(authControllers.resetPassword);
+
 // User Route
 router.route("/user").get(authMiddleWare, authControllers.user);
 

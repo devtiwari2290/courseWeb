@@ -105,6 +105,75 @@ const login = async (req, res, next) => {
   }
 };
 
+// Forgot Password Controller
+const forgetPassword = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+
+    // Find the user by email
+    const userExist = await User.findOne({ email: email });
+
+    if (!userExist) {
+      return res.status(400).json({ message: "Invalid Credentials" });
+    }
+
+    // Generate a reset token
+    const resetToken = jwt.sign(
+      { email: userExist.email },
+      process.env.JWT_SECRET_KEY,
+      { expiresIn: "1h" }
+    );
+
+    // Send the reset token to the user's email
+
+    res.status(200).json({
+      success: true,
+      message: "Reset OTP Sent Successfully",
+      resetToken,
+    });
+
+    console.log("Reset OTP Sent Successfully");
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Reset Password Controller
+const resetPassword = async (req, res, next) => {
+  try {
+    const { resetToken, newPassword } = req.body;
+
+    // Verify the reset token
+
+    const decodedToken = jwt.verify(resetToken, process.env.JWT_SECRET_KEY);
+
+    // Find the user by email
+    const userExist = await User.findOne({ email: decodedToken.email });
+
+    if (!userExist) {
+      return res.status(400).json({ message: "Invalid Credentials" });
+    }
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    // Update the user's password
+    userExist.password = hashedPassword;
+
+    // Save the user to the database
+    await userExist.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Password Reset Successfully",
+    });
+
+    console.log("Password Reset Successfully");
+  } catch (error) {
+    nwxt(error);
+  }
+};
+
 // User Controller (To get user details)
 const user = async (req, res) => {
   try {
@@ -117,7 +186,7 @@ const user = async (req, res) => {
   }
 };
 
-// Get User Profile Controller
+// Get User Profile Controller (To get user details)
 const getUserProfile = async (req, res, next) => {
   try {
     const id = req.params.id;
@@ -130,7 +199,7 @@ const getUserProfile = async (req, res, next) => {
   }
 };
 
-// User Profile Update Controller
+// User Profile Update Controller (To update user details)
 const updateUserProfile = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -161,6 +230,8 @@ module.exports = {
   home,
   register,
   login,
+  forgetPassword,
+  resetPassword,
   user,
   getUserProfile,
   updateUserProfile,
