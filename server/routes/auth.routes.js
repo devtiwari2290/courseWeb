@@ -17,7 +17,7 @@ router
 router.route("/login").post(validate(loginSchema), authControllers.login);
 
 // Forget Password Route
-router.route("/forget-password").post(authControllers.forgetPassword);
+router.route("/forgot-password").post(authControllers.forgetPassword);
 
 // Reset Password Route
 router.route("/reset-password").post(authControllers.resetPassword);

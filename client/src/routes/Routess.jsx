@@ -16,6 +16,7 @@ import AdminUpdate from "../pages/Admin-Update";
 import AdminDashBoard from "../pages/AdminDashBoard";
 import UserProfile from "../pages/User-Profile";
 import UserUpdateProfile from "../pages/User-Update-Profile";
+import ForgotPassword from "../pages/Forgot-Password";
 
 const Routess = () => {
   return (
@@ -30,6 +31,7 @@ const Routess = () => {
       <Route path="/logout" element={<Logout />} />
       <Route path="/user/profile" element={<UserProfile />} />
       <Route path="/user/profile/:id" element={<UserUpdateProfile />} />{" "}
+      <Route path="forgot-password" element={<ForgotPassword />} />
       {/* Fixed Path */}
       <Route path="*" element={<NotFound />} />
       {/* Admin Routes */}

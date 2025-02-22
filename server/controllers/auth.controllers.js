@@ -114,7 +114,7 @@ const forgetPassword = async (req, res, next) => {
     const userExist = await User.findOne({ email: email });
 
     if (!userExist) {
-      return res.status(400).json({ message: "Invalid Credentials" });
+      return res.status(400).json({ message: "User not found" });
     }
 
     // Generate a reset token
@@ -170,7 +170,7 @@ const resetPassword = async (req, res, next) => {
 
     console.log("Password Reset Successfully");
   } catch (error) {
-    nwxt(error);
+    next(error);
   }
 };
 
