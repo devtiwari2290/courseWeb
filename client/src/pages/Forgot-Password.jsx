@@ -105,12 +105,20 @@ const ForgotPassword = () => {
           >
             {isLoading ? "Sending..." : "Send OTP"}
           </button>
-          {message ? (
+          {message && (
             <p className="about text-sm sm:text-base md:text-lg text-green-600 font-medium text-center">
               OTP has been sent to your email
             </p>
-          ) : null}
+          )}
         </form>
+        <div className="flex justify-center mt-4">
+          <Link
+            to="/login"
+            className="text-blue-600 hover:underline text-sm sm:text-base md:text-lg"
+          >
+            Back to Login
+          </Link>
+        </div>
       </div>
     </div>
   );

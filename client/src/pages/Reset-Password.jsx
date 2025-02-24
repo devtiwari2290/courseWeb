@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HappyBoy from "../assets/happyboy.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const ResetPassword = () => {
   const [otp, setOtp] = useState("");
@@ -118,6 +118,14 @@ const ResetPassword = () => {
             </p>
           ) : null}
         </form>
+        <div className="flex justify-center mt-4">
+          <Link
+            to="/forgot-password"
+            className="text-blue-600 hover:underline text-sm sm:text-base md:text-lg"
+          >
+            Back to Forgot Password
+          </Link>
+        </div>
       </div>
     </div>
   );
