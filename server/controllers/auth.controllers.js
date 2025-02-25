@@ -109,7 +109,6 @@ const login = async (req, res, next) => {
   }
 };
 
-
 // Forgot Password Controller
 const forgetPassword = async (req, res, next) => {
   try {
