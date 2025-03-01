@@ -16,7 +16,7 @@ const AddService = () => {
   // Handle Sumbit Form
   const handleSumbit = (e) => {
     e.preventDefault();
-    const [name, value] = e.target.value;
+    const { name, value } = e.target;
     setService({ ...service, [name]: value });
     addService(); // Call addService
   };

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../store/auth";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,27 +24,6 @@ const AdminServices = () => {
       }
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const deleteService = async (id) => {
-    try {
-      const response = await axios.delete(
-        `${API}/api/data/delete-service/${id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: authorizationToken,
-          },
-        }
-      );
-      if (response.status === 200) {
-        toast.success("Service deleted successfully");
-        getAllServices(); // Refresh services after deletion
-      }
-    } catch (error) {
-      toast.error("Failed to delete service");
-      console.error(error);
     }
   };
 
@@ -84,16 +64,15 @@ const AdminServices = () => {
                     <span className="font-semibold">Duration:</span> {duration}
                   </p>
                   <div className="flex justify-between mt-4">
-                    <button
-                      className="bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-                      onClick={() => console.log("Edit service", id)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
-                      onClick={() => deleteService(id)}
-                    >
+                    <Link to={`/admin/services/edit/${id}`}>
+                      <button
+                        type="button"
+                        className="font-medium px-6 py-1 text-white rounded-md bg-green-600 hover:underline "
+                      >
+                        Edit
+                      </button>
+                    </Link>
+                    <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700">
                       Delete
                     </button>
                   </div>

@@ -12,7 +12,4 @@ router.route("/service").get(serviceControllers.getAllService);
 // Update Service Route
 router.route("/update-service/:id").put(serviceControllers.updateService);
 
-// Delete Service Route
-router.route("/delete-service/:id").delete(serviceControllers.deleteService);
-
 module.exports = router;
