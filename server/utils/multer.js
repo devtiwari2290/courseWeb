@@ -1,14 +1,17 @@
 const multer = require("multer");
 const path = require("path");
-const User = require("../models/userModel");
+const Service = require("../models/service.model");
 
 // Configure multer storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/profile_pics/"); // Directory to save profile pictures
+    cb(null, "uploads/services"); // Directory to save profile pictures
   },
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
+    cb(
+      null,
+      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
+    );
   },
 });
 

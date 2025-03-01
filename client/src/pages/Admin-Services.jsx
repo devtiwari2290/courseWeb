@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../store/auth";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -7,10 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import CourseImage from "../assets/course.jpg"; // Ensure this path is correct
 
 const AdminServices = () => {
-  // Authorization Check
   const { authorizationToken, services, API } = useAuth();
 
-  // Get All Services
   const getAllServices = async () => {
     try {
       const response = await axios.get(`${API}/api/admin/services`, {
@@ -19,15 +16,34 @@ const AdminServices = () => {
           Authorization: authorizationToken,
         },
       });
-      // Check if services exist
       if (!response.data.services || response.data.services.length === 0) {
         toast.error("No services found");
       } else if (response.status === 200) {
-        console.log("Admin Services:", response.data.services);
         toast.success(response.data.message);
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const deleteService = async (id) => {
+    try {
+      const response = await axios.delete(
+        `${API}/api/data/delete-service/${id}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: authorizationToken,
+          },
+        }
+      );
+      if (response.status === 200) {
+        toast.success("Service deleted successfully");
+        getAllServices(); // Refresh services after deletion
+      }
+    } catch (error) {
+      toast.error("Failed to delete service");
+      console.error(error);
     }
   };
 
@@ -40,15 +56,15 @@ const AdminServices = () => {
       <h2 className="about text-2xl md:text-2xl text-center text-white font-bold">
         Admin Services Data
       </h2>
-      {/* Admin Services */}
-      <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 mt-7 ">
+      <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 mt-7">
         {services && services.length > 0 ? (
           services.map((currElem, index) => {
-            const { name, description, category, price, duration } = currElem;
+            const { id, name, description, category, price, duration } =
+              currElem;
             return (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg  overflow-hidden transform transition duration-300 hover:scale-105"
+                className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105"
               >
                 <img
                   src={CourseImage}
@@ -65,8 +81,22 @@ const AdminServices = () => {
                     <span className="font-semibold">Price:</span> {price}
                   </p>
                   <p className="text-gray-700 font-normal">
-                    <span className="font-semibold"> Duration:</span> {duration}
+                    <span className="font-semibold">Duration:</span> {duration}
                   </p>
+                  <div className="flex justify-between mt-4">
+                    <button
+                      className="bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+                      onClick={() => console.log("Edit service", id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
+                      onClick={() => deleteService(id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </div>
             );

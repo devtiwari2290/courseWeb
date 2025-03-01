@@ -4,6 +4,7 @@ import { IoHome } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
 import { MdContacts, MdDesignServices } from "react-icons/md";
+import { RiFunctionAddFill } from "react-icons/ri";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
@@ -100,6 +101,18 @@ const AdminLayout = () => {
                   <MdContacts className="text-blue-500" /> Contacts
                 </NavLink>
               </li>
+
+              {/* Add Services */}
+              <li>
+                <NavLink
+                  to="/admin/add-services"
+                  className="flex items-center gap-2 text-white tracking-wide font-semibold p-2 rounded-lg hover:bg-gray-700 transition-all"
+                  style={(e) => ({ color: e.isActive ? "yellow" : "white" })}
+                >
+                  <RiFunctionAddFill className="text-red-500" /> Add Services
+                </NavLink>
+              </li>
+
               {/* Services */}
               <li>
                 <NavLink
