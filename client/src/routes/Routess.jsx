@@ -18,7 +18,6 @@ import UserProfile from "../pages/User-Profile";
 import UserUpdateProfile from "../pages/User-Update-Profile";
 import ForgotPassword from "../pages/Forgot-Password";
 import ResetPassword from "../pages/Reset-Password";
-import AddService from "../pages/Add-Service";
 
 const Routess = () => {
   return (
@@ -43,7 +42,6 @@ const Routess = () => {
         <Route path="users" element={<AdminUsers />} />
         <Route path="users/:id/edit" element={<AdminUpdate />} />
         <Route path="contacts" element={<AdminContacts />} />
-        <Route path="add-services" element={<AddService />} />
         <Route path="services" element={<AdminServices />} />
         <Route path="services/:id/edit" element={<AdminServices />} />
       </Route>

@@ -63,19 +63,6 @@ const AdminServices = () => {
                   <p className="text-gray-700 font-normal">
                     <span className="font-semibold">Duration:</span> {duration}
                   </p>
-                  <div className="flex justify-between mt-4">
-                    <Link to={`/admin/services/edit/${id}`}>
-                      <button
-                        type="button"
-                        className="font-medium px-6 py-1 text-white rounded-md bg-green-600 hover:underline "
-                      >
-                        Edit
-                      </button>
-                    </Link>
-                    <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700">
-                      Delete
-                    </button>
-                  </div>
                 </div>
               </div>
             );

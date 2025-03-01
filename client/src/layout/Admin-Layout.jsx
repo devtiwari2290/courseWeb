@@ -102,17 +102,6 @@ const AdminLayout = () => {
                 </NavLink>
               </li>
 
-              {/* Add Services */}
-              <li>
-                <NavLink
-                  to="/admin/add-services"
-                  className="flex items-center gap-2 text-white tracking-wide font-semibold p-2 rounded-lg hover:bg-gray-700 transition-all"
-                  style={(e) => ({ color: e.isActive ? "yellow" : "white" })}
-                >
-                  <RiFunctionAddFill className="text-red-500" /> Add Services
-                </NavLink>
-              </li>
-
               {/* Services */}
               <li>
                 <NavLink

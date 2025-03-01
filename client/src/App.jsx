@@ -9,7 +9,7 @@ const App = () => {
     <>
       <Header />
       <ToastContainer
-        position="top-right"
+        position="top-center"
         autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
