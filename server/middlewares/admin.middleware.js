@@ -2,7 +2,6 @@ const adminMiddleware = async (req, res, next) => {
   try {
     const adminRole = req.user.isAdmin;
     // Check if the user is an admin
-
     if (!adminRole) {
       return res
         .status(403)

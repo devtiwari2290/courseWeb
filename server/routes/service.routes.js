@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { services } = require("../controllers/service.controller");
+const upload = require("../utils/multer");
+const serviceControllers = require("../controllers/service.controller");
 
-// Service Route
-router.route("/service").get(services);
+// Get Service Route
+router.route("/service").get(serviceControllers.getAllService);
+
 module.exports = router;

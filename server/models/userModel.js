@@ -28,6 +28,16 @@ const userSchema = new mongoose.Schema(
       unique: true,
     },
 
+    otp: {
+      type: String,
+      default: 0,
+    },
+
+    otpExpires: {
+      type: Date,
+      default: Date.now(),
+    },
+
     isAdmin: {
       type: Boolean,
       default: false,
@@ -56,7 +66,7 @@ userSchema.methods.generateToken = function () {
       },
       process.env.JWT_SECRET_KEY,
       {
-        expiresIn: "30d",
+        expiresIn: "1d",
       }
     );
   } catch (error) {

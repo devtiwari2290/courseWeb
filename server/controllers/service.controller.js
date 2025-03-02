@@ -1,7 +1,7 @@
 const Service = require("../models/service.model");
 
-// Service controller
-const services = async (req, res) => {
+// Get Service controller
+const getAllService = async (req, res) => {
   try {
     const services = await Service.find({});
 
@@ -16,6 +16,7 @@ const services = async (req, res) => {
     console.log(error);
   }
 };
+
 module.exports = {
-  services,
+  getAllService,
 };

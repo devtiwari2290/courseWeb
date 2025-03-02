@@ -8,6 +8,7 @@ const serviceRouter = require("./routes/service.routes");
 const adminRouter = require("./routes/admin.routes");
 const errorMiddleware = require("./middlewares/error.middleware");
 const authMiddleWare = require("./middlewares/auth.middleware");
+const path = require("path");
 
 // CORS
 const corsOptions = {
@@ -32,8 +33,15 @@ app.use("/api/admin", adminRouter);
 app.use(errorMiddleware);
 app.use(authMiddleWare);
 
+// Static Files
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
 // Server
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Start Server
 connectDB().then(() => {
