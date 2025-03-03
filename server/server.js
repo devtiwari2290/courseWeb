@@ -12,7 +12,7 @@ const path = require("path");
 
 // CORS
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://courseco-app.vercel.app/",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
