@@ -19,7 +19,7 @@ const Header = () => {
   const closeDropdown = () => setIsDropdownOpen(false);
 
   return (
-    <nav className="fixed z-20 bg-white flex justify-between px-4 md:px-10 items-center w-full h-[10vh] shadow-md">
+    <nav className="fixed z-20 bg-white flex justify-between px-4 md:px-10 items-center w-full h-[8vh] md:h-[10vh] shadow-md">
       {/* Logo Section */}
       <Link to="/" className="flex items-center gap-1">
         <SiCodechef size={30} className="text-[#5766FF] cursor-pointer" />
@@ -146,12 +146,15 @@ const Header = () => {
           ) : (
             <>
               <NavLink to="/register">
-                <button className="text-white bg-black text-sm md:text-base font-semibold flex items-center gap-1 px-3 py-3 rounded-xl w-full md:w-auto">
+                <button
+                  className="text-white bg-black text-sm md:text-base font-semibold flex items-center gap-1 px-3 py-3 rounded-xl w-full md:w-auto"
+                  onClick={closeMenu}
+                >
                   Sign Up
                   <IoIosArrowRoundForward size={20} />
                 </button>
               </NavLink>
-              <NavLink to="/login">
+              <NavLink to="/login" onClick={closeMenu}>
                 <button className="text-white text-sm tracking-wide md:text-base font-semibold flex items-center gap-2 bg-black px-3 py-[9px] md:py-[8px] rounded-xl w-full md:w-auto">
                   <img
                     src={userIcon}
