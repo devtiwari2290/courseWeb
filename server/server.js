@@ -10,24 +10,14 @@ const errorMiddleware = require("./middlewares/error.middleware");
 const authMiddleWare = require("./middlewares/auth.middleware");
 const path = require("path");
 
-// // CORS
-// const corsOptions = {
-//   origin: "https://courseco-app.vercel.app/",
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-//   allowedHeaders: ["Content-Type", "Authorization"],
-//   credentials: true,
-// };
-// app.use(cors(corsOptions));
-
-// Fix CORS
-app.use(
-  cors({
-    origin: "http://localhost:5173/", // Allow only the specified domain
-    credentials: true, // Allow cookies and authentication headers
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+// CORS
+const corsOptions = {
+  origin: VERCEL_URL,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 // Middleware
 app.use(express.json());
