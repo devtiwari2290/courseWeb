@@ -71,7 +71,7 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: process.env.VERCEL_URL || "http://localhost:3000", // Fallback in case env is missing
+  origin: process.env.VERCEL_URL,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
