@@ -9,6 +9,7 @@ const adminRouter = require("./routes/admin.routes");
 const errorMiddleware = require("./middlewares/error.middleware");
 const authMiddleWare = require("./middlewares/auth.middleware");
 const path = require("path");
+const __dirname = path.resolve();
 
 // CORS
 const corsOptions = {
@@ -35,10 +36,10 @@ app.use(errorMiddleware);
 app.use(authMiddleWare);
 
 // Static Files
-app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use(express.static(path.join(__dirname, "/client/dist")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
 });
 
 // Server
