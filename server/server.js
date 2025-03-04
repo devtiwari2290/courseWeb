@@ -13,7 +13,7 @@ const __dirname = path.resolve();
 
 // CORS
 const corsOptions = {
-  origin: VERCEL_URL,
+  origin: process.env.VERCEL_URL,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
@@ -43,11 +43,11 @@ app.get("*", (_, res) => {
 });
 
 // Server
-const PORT = process.env.PORT || 3000;
+const Port = process.env.PORT || 3000;
 
 // Start Server
 connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  app.listen(Port, () => {
+    console.log(`Server is running on port ${Port}`);
   });
 });
