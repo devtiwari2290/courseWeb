@@ -10,10 +10,11 @@ const errorMiddleware = require("./middlewares/error.middleware");
 const authMiddleWare = require("./middlewares/auth.middleware");
 const path = require("path");
 
-// CORS
+// // CORS
 // const corsOptions = {
 //   origin: "https://courseco-app.vercel.app/",
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
 //   credentials: true,
 // };
 // app.use(cors(corsOptions));
@@ -21,7 +22,7 @@ const path = require("path");
 // Fix CORS
 app.use(
   cors({
-    origin: "https://courseco-app.vercel.app/",
+    origin: "http://localhost:5173/", // Allow only the specified domain
     credentials: true, // Allow cookies and authentication headers
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
