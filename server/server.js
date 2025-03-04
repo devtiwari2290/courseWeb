@@ -10,7 +10,6 @@ const adminRouter = require("./routes/admin.routes");
 const errorMiddleware = require("./middlewares/error.middleware");
 const authMiddleWare = require("./middlewares/auth.middleware");
 const path = require("path");
-const __dirname = path.resolve();
 
 // CORS
 const corsOptions = {
