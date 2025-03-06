@@ -187,7 +187,7 @@ const Home = () => {
           </div>
 
           {/* Image Section */}
-          <div className=" flex justify-center">
+          <div className="flex justify-center">
             {/* Mobile version - Fade Up */}
             <img
               src={HomeImage}

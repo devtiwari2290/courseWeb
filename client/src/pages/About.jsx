@@ -2,12 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AboutImage from "../assets/About.avif";
 import { useAuth } from "../store/auth";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const About = () => {
   const { user } = useAuth();
+  const [animation, setAnimation] = useState("fade-left");
+
+  useEffect(() => {
+    const updateAnimation = () => {
+      if (window.innerWidth < 768) {
+        setAnimation("fade-up"); // Mobile animation
+      } else {
+        setAnimation("fade-left"); // Large screen animation
+      }
+    };
+
+    updateAnimation(); // Set animation on mount
+    window.addEventListener("resize", updateAnimation); // Update on resize
+
+    return () => window.removeEventListener("resize", updateAnimation); // Cleanup
+  }, []);
 
   useEffect(() => {
     AOS.init();
@@ -19,9 +35,9 @@ const About = () => {
       {/* Heading Section */}
       <div className="flex flex-col gap-6 w-full max-w-2xl p-5 sm:p-5 text-center md:text-left">
         <p
-          className=" text-base pt-5 md:pt-0 tracking-wide"
-          data-aos="fade-up"
-          data-aos-offset="300"
+          className=" text-base md:pt-0 tracking-wide"
+          data-aos="fade-right"
+          data-aos-offset="50"
           data-aos-delay="50"
           data-aos-duration="1000"
           data-aos-mirror="true"
@@ -68,8 +84,8 @@ const About = () => {
         ].map((item, index) => (
           <p
             key={index}
-            className=" text-sm sm:text-base font-normal"
-            data-aos="fade-right"
+            className="text-sm sm:text-base font-normal"
+            data-aos="fade-up sm:fade-right" // 'fade-up' on mobile, 'fade-right' on larger screens
             data-aos-anchor="#example-anchor"
             data-aos-offset="500"
             data-aos-delay="1200"
@@ -84,8 +100,8 @@ const About = () => {
         <div
           className="flex flex-col sm:flex-row justify-center md:justify-start items-center gap-6 mt-5"
           data-aos="fade-up"
-          data-aos-offset="300"
-          data-aos-delay="50"
+          data-aos-offset="50"
+          data-aos-delay="1100"
           data-aos-duration="1000"
           data-aos-mirror="true"
           data-aos-once="true"
@@ -107,8 +123,8 @@ const About = () => {
       <div className="flex flex-col items-center w-full max-w-md">
         <img
           src={AboutImage}
-          className="w-full object-cover rounded-xl"
-          data-aos="fade-left"
+          className=" w-full object-cover rounded-xl"
+          data-aos={animation}
           data-aos-offset="300"
           data-aos-delay="50"
           data-aos-duration="1000"
@@ -127,9 +143,9 @@ const About = () => {
             <div
               key={index}
               className="bg-[#FAFAFA] text-black text-center font-semibold px-6 py-4 rounded-lg shadow-md"
-              data-aos="fade-left"
-              data-aos-offset="300"
-              data-aos-delay="600"
+              data-aos={animation}
+              data-aos-offset="50"
+              data-aos-delay="700"
               data-aos-duration="1000"
               data-aos-mirror="true"
               data-aos-once="true"
