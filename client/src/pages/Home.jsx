@@ -60,65 +60,132 @@ const Home = () => {
         {/* Home Section Part 1 */}
         <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-7xl gap-10  mx-auto pt-0 md:pt-14">
           {/* Text Section */}
-          <div
-            className=" fade-right flex flex-col gap-5 w-full max-w-md"
-            data-aos="fade-right"
-            data-aos-offset="50"
-            data-aos-delay="50"
-            data-aos-duration="1000"
-            data-aos-mirror="true"
-            data-aos-once="false"
-            data-aos-easing="ease-in-sine"
-          >
-            <h2 className="text-2xl md:text-5xl font-bold leading-[1.2] text-center md:text-left">
-              Master New Skills with CourseCo
-            </h2>
-            <p className="text-sm md:text-base text-center md:text-left font-medium">
-              Are you ready to take your coding journey <br /> to the next
-              level?
-            </p>
-            {/* Get Started Button */}
-            <div className="flex flex-col md:flex-row items-center gap-10">
-              <Link to="/register">
-                <button className="button relative inline-flex items-center gap-2 px-6 py-3 text-lg font-medium text-blue-500 border border-black rounded-full overflow-hidden group">
-                  <span className="relative z-10 transition-colors text-black duration-300 group-hover:text-white">
-                    Get Started
-                  </span>
-                  <FaCircleArrowRight
-                    size={20}
-                    className="text-black transition-colors duration-300 group-hover:text-white"
-                  />
-                </button>
-              </Link>
+          <div className="w-full max-w-md">
+            {/* Mobile version with fade-up */}
+            <div
+              className="fade-up flex flex-col gap-5 w-full md:hidden"
+              data-aos="fade-up"
+              data-aos-offset="50"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-mirror="true"
+              data-aos-once="false"
+              data-aos-easing="ease-in-sine"
+            >
+              <h2 className="text-2xl md:text-5xl font-bold leading-[1.2] text-center md:text-left">
+                Master New Skills with CourseCo
+              </h2>
+              <p className="text-sm md:text-base text-center md:text-left font-medium">
+                Are you ready to take your coding journey <br /> to the next
+                level?
+              </p>
 
-              {/* Students Image Section */}
-              <div className="flex items-center gap-5">
-                <div className="flex items-center">
-                  <img
-                    src="https://img.freepik.com/free-photo/education-students-happy-asian-woman-holding-notebooks-laughing-smiling-camera-enjoys-goi_1258-167794.jpg?t=st=1737967933~exp=1737971533~hmac=a777a7a9b0350d9b757c6e3e89b15dc3100266e50de8d591e77dcfd38a5795dd&w=1800"
-                    alt=""
-                    className="h-10 w-10 rounded-full"
-                  />
-                  <img
-                    src="https://img.freepik.com/free-photo/front-view-male-student-wearing-black-backpack-holding-copybooks-files-blue-wall_140725-42642.jpg?t=st=1737968043~exp=1737971643~hmac=37cd70c45b85223dc145de79d18a925c048950935e29f7eea9cebd090fffcac1&w=1800"
-                    alt=""
-                    className="h-10 w-10 rounded-full"
-                  />
-                  <img
-                    src="https://img.freepik.com/free-photo/front-view-female-student-grey-jacket-wearing-yellow-backpack-holding-copybook-blue-wall_140725-46390.jpg?t=st=1737968079~exp=1737971679~hmac=b2e537aa4d15a0aa49b6a66e170235f545d4854739fdd7fe43a3f01accb3034a&w=1800"
-                    alt=""
-                    className="h-10 w-10 rounded-full"
-                  />
+              {/* Get Started Button */}
+              <div className="flex flex-col md:flex-row items-center gap-10">
+                <Link to="/register">
+                  <button className="button relative inline-flex items-center gap-2 px-6 py-3 text-lg font-medium text-blue-500 border border-black rounded-full overflow-hidden group">
+                    <span className="relative z-10 transition-colors text-black duration-300 group-hover:text-white">
+                      Get Started
+                    </span>
+                    <FaCircleArrowRight
+                      size={20}
+                      className="text-black transition-colors duration-300 group-hover:text-white"
+                    />
+                  </button>
+                </Link>
+
+                {/* Students Image Section */}
+                <div className="flex items-center gap-5">
+                  <div className="flex items-center">
+                    <img
+                      src="https://img.freepik.com/free-photo/education-students-happy-asian-woman-holding-notebooks-laughing-smiling-camera-enjoys-goi_1258-167794.jpg"
+                      alt=""
+                      className="h-10 w-10 rounded-full"
+                    />
+                    <img
+                      src="https://img.freepik.com/free-photo/front-view-male-student-wearing-black-backpack-holding-copybooks-files-blue-wall_140725-42642.jpg"
+                      alt=""
+                      className="h-10 w-10 rounded-full"
+                    />
+                    <img
+                      src="https://img.freepik.com/free-photo/front-view-female-student-grey-jacket-wearing-yellow-backpack-holding-copybook-blue-wall_140725-46390.jpg"
+                      alt=""
+                      className="h-10 w-10 rounded-full"
+                    />
+                  </div>
+
+                  {/* Number of Students */}
+                  <div className="flex flex-col items-center md:items-start">
+                    <h2 className="text-sm md:text-lg font-bold">42k +</h2>
+                    <p className="text-xs md:text-sm">Students</p>
+                  </div>
                 </div>
+              </div>
+            </div>
 
-                {/* Number of Students */}
-                <div className="flex flex-col items-center md:items-start">
-                  <h2 className="text-sm md:text-lg font-bold">42k +</h2>
-                  <p className="text-xs md:text-sm">Students</p>
+            {/* Desktop version with fade-right */}
+            <div
+              className="fade-right flex flex-col gap-5 w-full hidden md:block"
+              data-aos="fade-right"
+              data-aos-offset="50"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-mirror="true"
+              data-aos-once="false"
+              data-aos-easing="ease-in-sine"
+            >
+              <h2 className="text-2xl md:text-5xl font-bold leading-[1.2] text-center md:text-left">
+                Master New Skills with CourseCo
+              </h2>
+              <p className="text-sm md:text-base text-center md:text-left font-medium">
+                Are you ready to take your coding journey <br /> to the next
+                level?
+              </p>
+
+              {/* Get Started Button */}
+              <div className="flex flex-col md:flex-row items-center gap-10">
+                <Link to="/register">
+                  <button className="button relative inline-flex items-center gap-2 px-6 py-3 text-lg font-medium text-blue-500 border border-black rounded-full overflow-hidden group">
+                    <span className="relative z-10 transition-colors text-black duration-300 group-hover:text-white">
+                      Get Started
+                    </span>
+                    <FaCircleArrowRight
+                      size={20}
+                      className="text-black transition-colors duration-300 group-hover:text-white"
+                    />
+                  </button>
+                </Link>
+
+                {/* Students Image Section */}
+                <div className="flex items-center gap-5">
+                  <div className="flex items-center">
+                    <img
+                      src="https://img.freepik.com/free-photo/education-students-happy-asian-woman-holding-notebooks-laughing-smiling-camera-enjoys-goi_1258-167794.jpg"
+                      alt=""
+                      className="h-10 w-10 rounded-full"
+                    />
+                    <img
+                      src="https://img.freepik.com/free-photo/front-view-male-student-wearing-black-backpack-holding-copybooks-files-blue-wall_140725-42642.jpg"
+                      alt=""
+                      className="h-10 w-10 rounded-full"
+                    />
+                    <img
+                      src="https://img.freepik.com/free-photo/front-view-female-student-grey-jacket-wearing-yellow-backpack-holding-copybook-blue-wall_140725-46390.jpg"
+                      alt=""
+                      className="h-10 w-10 rounded-full"
+                    />
+                  </div>
+
+                  {/* Number of Students */}
+                  <div className="flex flex-col items-center md:items-start">
+                    <h2 className="text-sm md:text-lg font-bold">42k +</h2>
+                    <p className="text-xs md:text-sm">Students</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
           {/* Image Section */}
           <img
             src={HomeImage}
