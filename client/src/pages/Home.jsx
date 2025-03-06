@@ -64,7 +64,7 @@ const Home = () => {
             {/* Mobile version with fade-up */}
             <div
               className="fade-up flex flex-col gap-5 w-full md:hidden"
-              data-aos="fade-up"
+              data-aos="fade-down"
               data-aos-offset="50"
               data-aos-delay="50"
               data-aos-duration="1000"
@@ -187,18 +187,35 @@ const Home = () => {
           </div>
 
           {/* Image Section */}
-          <img
-            src={HomeImage}
-            alt="Not Found"
-            className="h-80 w-80 md:h-100 md:w-100 rounded-2xl"
-            data-aos="fade-left"
-            data-aos-offset="50"
-            data-aos-delay="400"
-            data-aos-duration="1000"
-            data-aos-mirror="true"
-            data-aos-once="false"
-            data-aos-easing="ease-in-sine"
-          />
+          <div className=" flex justify-center">
+            {/* Mobile version - Fade Up */}
+            <img
+              src={HomeImage}
+              alt="Not Found"
+              className="h-80 w-80 rounded-2xl md:hidden"
+              data-aos="fade-up"
+              data-aos-offset="50"
+              data-aos-delay="400"
+              data-aos-duration="1000"
+              data-aos-mirror="true"
+              data-aos-once="false"
+              data-aos-easing="ease-in-sine"
+            />
+
+            {/* Desktop version - Fade Left */}
+            <img
+              src={HomeImage}
+              alt="Not Found"
+              className="h-80 w-80 md:h-100 md:w-100 rounded-2xl hidden md:block"
+              data-aos="fade-left"
+              data-aos-offset="50"
+              data-aos-delay="400"
+              data-aos-duration="1000"
+              data-aos-mirror="true"
+              data-aos-once="false"
+              data-aos-easing="ease-in-sine"
+            />
+          </div>
         </div>
 
         {/* Home Section Part 2 */}
