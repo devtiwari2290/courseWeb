@@ -371,7 +371,7 @@ const Home = () => {
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-10 w-full max-w-7xl mx-auto mt-10 md:mt-14">
             {cardsData.map((card, index) => (
               <div
-                className=" flex flex-col items-center gap-1 shadow-md shadow-black p-5 rounded-lg border border-dashed border-gray-300 mx-5 md:mx-0"
+                className=" flex flex-col items-center gap-1 shadow-md shadow-black p-5 rounded-lg border border-dashed border-gray-300 mx-1 md:mx-0"
                 data-aos="flip-left"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
