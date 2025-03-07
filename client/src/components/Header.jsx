@@ -30,10 +30,16 @@ const Header = () => {
 
       {/* Main Navigation */}
       <div
-        className={`${
-          isMenuOpen ? "flex" : "hidden"
-        }  services  md:flex flex-col md:flex-row gap-3 md:gap-10 md:items-center absolute md:static top-[10vh] left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none pl-7 p-4 md:p-0 z-10`}
+        className={`fixed top-0 left-0 h-full w-3/4 sm:w-1/2 bg-white shadow-lg transform transition-transform flex flex-col gap-5 pt-14 duration-500 ease-in-out md:static md:h-auto md:w-auto md:flex md:items-center md:gap-10 md:bg-transparent md:shadow-none p-6 md:p-0 z-10 ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0`}
       >
+        <button
+          className="absolute top-4 right-4 font-bold text-black md:hidden"
+          onClick={closeMenu}
+        >
+          <LiaTimesSolid size={24} />
+        </button>
         <NavLink
           to="/"
           style={(e) => ({ color: e.isActive ? "red" : "black" })}
@@ -171,7 +177,11 @@ const Header = () => {
 
       {/* Hamburger Menu for Mobile */}
       <div className="md:hidden">
-        {isMenuOpen ? (
+        <SlMenu
+          className="text-2xl font-bold text-black cursor-pointer"
+          onClick={toggleMenu}
+        />
+        {/* {isMenuOpen ? (
           <LiaTimesSolid
             className="text-2xl text-black cursor-pointer"
             onClick={toggleMenu}
@@ -181,7 +191,7 @@ const Header = () => {
             className="text-2xl text-black cursor-pointer"
             onClick={toggleMenu}
           />
-        )}
+        )} */}
       </div>
     </nav>
   );
