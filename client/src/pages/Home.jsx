@@ -228,7 +228,7 @@ const Home = () => {
             Why Choose CourseCo?
           </h2>
           <div
-            className="grid grid-cols-1 md:grid-cols-3 gap-14 pt-10"
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-20 pt-10"
             data-aos="fade-up"
             data-aos-offset="50"
             data-aos-delay="50"
@@ -243,7 +243,7 @@ const Home = () => {
               <img
                 src="https://img.freepik.com/free-vector/hand-drawn-online-tutor-illustration_52683-146749.jpg?t=st=1737973594~exp=1737977194~hmac=8d77ba3e90c98d4fca030369814ae5e4b088499a628f3c15d2f4b583842270c9&w=1800"
                 alt="Not Found"
-                className="h-40 w-40 md:h-60 md:w-72 rounded-2xl"
+                className="h-48 w-60 md:h-60 md:w-72 rounded-2xl"
               />
               <h2 className="text-lg md:text-2xl font-bold text-center">
                 Flexible Learning
@@ -260,7 +260,7 @@ const Home = () => {
               <img
                 src="https://img.freepik.com/free-vector/coding-workshop-concept-illustration_114360-8112.jpg?t=st=1737973747~exp=1737977347~hmac=0d0ca52869a27ac2cc29dfea6e8ad62fef9b83bab24eb4c54687fa402821dd94&w=1800"
                 alt=" Not Found"
-                className="h-40 w-40 md:h-60 md:w-72 rounded-2xl"
+                className="h-48 w-60 md:h-60 md:w-72 rounded-2xl"
               />
               <h2 className="text-lg md:text-2xl font-bold text-center">
                 Expert Instructors
@@ -277,7 +277,7 @@ const Home = () => {
               <img
                 src="https://img.freepik.com/free-vector/online-certification-concept_23-2148575665.jpg?t=st=1737974317~exp=1737977917~hmac=0e5bf0f1a9db9d4a2bea805edb74b2fd6ad7ec86ca785742ec0c97dcf3538ce0&w=1060"
                 alt=" Not Found"
-                className="h-40 w-40 md:h-60 md:w-72 rounded-2xl"
+                className="h-48 w-60 md:h-60 md:w-72 rounded-2xl"
               />
               <h2 className="text-lg md:text-2xl font-bold text-center">
                 Comprehensive Curriculum
