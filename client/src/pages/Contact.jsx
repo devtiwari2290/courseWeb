@@ -15,6 +15,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [message, setMessage] = useState("");
 
   // Contact User Details
   const [userData, setUserData] = useState(true);
@@ -68,6 +69,7 @@ const Contact = () => {
 
       if (response.status === 201) {
         toast.success(response.data.message);
+        setMessage(true); // Set message to true before navigating
         console.log("Message Sent Successfully");
       } else {
         toast.error(response.data.message);
@@ -171,6 +173,11 @@ const Contact = () => {
             <button className="w-full p-3 bg-black text-white rounded-full mt-3 md:mt-5 tracking-widest">
               Let's Get In Touch
             </button>
+            {message && (
+              <p className="about text-sm sm:text-base md:text-lg text-black font-medium text-center">
+                Message has been sent successfully!🚀
+              </p>
+            )}
           </form>
         </div>
       </div>
