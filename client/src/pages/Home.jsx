@@ -1,10 +1,12 @@
 import React from "react";
+import { useEffect } from "react";
 import HomeImage from "../assets/Homepage.png";
 import { Link } from "react-router-dom";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+import { use } from "react";
 
 // Cards Section Data
 const cardsData = [
@@ -53,14 +55,16 @@ const cardsData = [
 ];
 
 const Home = () => {
-  AOS.init();
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <>
       <div className="home w-full min-h-screen px-5 pb-10 md:pb-0 md:px-10 pt-28 md:pt-24">
         {/* Home Section Part 1 */}
         <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-7xl gap-10  mx-auto pt-0 md:pt-14">
           {/* Text Section */}
-          <div className="w-full max-w-md">
+          <div className="w-full md:max-w-xl flex flex-col items-center space-y-5">
             {/* Mobile version with fade-up */}
             <div
               className="fade-up flex flex-col gap-5 w-full md:hidden"
@@ -81,7 +85,7 @@ const Home = () => {
               </p>
 
               {/* Get Started Button */}
-              <div className="flex flex-col md:flex-row items-center gap-10">
+              <div className="flex flex-col md:flex-row items-center gap-7">
                 <Link to="/register">
                   <button className="button relative inline-flex items-center gap-2 px-6 py-3 text-lg font-medium text-blue-500 border border-black rounded-full overflow-hidden group">
                     <span className="relative z-10 transition-colors text-black duration-300 group-hover:text-white">
@@ -125,7 +129,7 @@ const Home = () => {
 
             {/* Desktop version with fade-right */}
             <div
-              className="fade-right flex flex-col gap-5 w-full hidden md:block"
+              className="fade-right flex flex-col space-y-5 w-full hidden md:block"
               data-aos="fade-right"
               data-aos-offset="50"
               data-aos-delay="50"
