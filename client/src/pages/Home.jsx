@@ -277,7 +277,7 @@ const Home = () => {
               <img
                 src="https://img.freepik.com/free-vector/online-certification-concept_23-2148575665.jpg?t=st=1737974317~exp=1737977917~hmac=0e5bf0f1a9db9d4a2bea805edb74b2fd6ad7ec86ca785742ec0c97dcf3538ce0&w=1060"
                 alt=" Not Found"
-                className="h-48 w-60 md:h-60 md:w-72 rounded-2xl"
+                className="h-60 w-60 md:h-60 md:w-72 rounded-2xl"
               />
               <h2 className="text-lg md:text-2xl font-bold text-center">
                 Comprehensive Curriculum
@@ -371,7 +371,7 @@ const Home = () => {
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-10 w-full max-w-7xl mx-auto mt-10 md:mt-14">
             {cardsData.map((card, index) => (
               <div
-                className=" flex flex-col items-center gap-1 shadow-md shadow-black p-5 rounded-lg border border-dashed border-gray-300 mx-5 md:mx-0"
+                className=" flex flex-col items-center gap-1 shadow-md shadow-black p-5 rounded-lg border border-dashed border-gray-300 mx-4 md:mx-0"
                 data-aos="flip-left"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
