@@ -13,7 +13,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const closeDropdown = () => setIsDropdownOpen(false);
@@ -30,7 +30,7 @@ const Header = () => {
 
       {/* Main Navigation */}
       <div
-        className={`fixed top-0 left-0 h-full w-3/4 sm:w-1/2 bg-white shadow-lg transform transition-transform flex flex-col gap-5 pt-14 duration-500 ease-in-out md:static md:h-auto md:w-auto md:flex md:items-center md:gap-10 md:bg-transparent md:shadow-none p-6 md:p-0 z-10 ${
+        className={`fixed top-0 left-0 h-full w-3/4 sm:w-1/2 bg-white shadow-lg transform transition-transform flex flex-col gap-5 pt-14 duration-500 ease-in-out md:static md:h-auto md:w-auto md:flex-row md:items-center md:gap-10 md:bg-transparent md:shadow-none p-6 md:p-0 z-10 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
