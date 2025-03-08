@@ -4,8 +4,11 @@ import HomeImage from "../assets/Homepage.png";
 import { Link } from "react-router-dom";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { MdOutlineStarPurple500 } from "react-icons/md";
+import { LuPyramid } from "react-icons/lu";
+import { CiWavePulse1 } from "react-icons/ci";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+
 import { use } from "react";
 
 // Cards Section Data
@@ -64,7 +67,7 @@ const Home = () => {
         {/* Home Section Part 1 */}
         <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-7xl gap-10  mx-auto pt-0 md:pt-14">
           {/* Text Section */}
-          <div className="w-full md:max-w-xl flex flex-col items-center space-y-5">
+          <div className="w-full md:max-w-md flex flex-col items-center space-y-5">
             {/* Mobile version with fade-up */}
             <div
               className="fade-up flex flex-col gap-5 w-full md:hidden"
@@ -87,12 +90,12 @@ const Home = () => {
               {/* Get Started Button */}
               <div className="flex flex-col md:flex-row items-center gap-7">
                 <Link to="/register">
-                  <button className="button relative inline-flex items-center gap-2 px-6 py-3 text-lg font-medium text-blue-500 border border-black rounded-full overflow-hidden group">
+                  <button className="button relative inline-flex items-center gap-5 px-3 py-2 text-lg font-medium text-blue-500 border border-black rounded-full overflow-hidden group">
                     <span className="relative z-10 transition-colors text-black duration-300 group-hover:text-white">
                       Get Started
                     </span>
                     <FaCircleArrowRight
-                      size={20}
+                      size={28}
                       className="text-black transition-colors duration-300 group-hover:text-white"
                     />
                   </button>
@@ -149,12 +152,12 @@ const Home = () => {
               {/* Get Started Button */}
               <div className="flex flex-col md:flex-row items-center gap-10">
                 <Link to="/register">
-                  <button className="button relative inline-flex items-center gap-2 px-6 py-3 text-lg font-medium text-blue-500 border border-black rounded-full overflow-hidden group">
+                  <button className="button relative inline-flex items-center gap-3 px-4 py-3 text-lg font-medium text-blue-500 border border-black rounded-full overflow-hidden group">
                     <span className="relative z-10 transition-colors text-black duration-300 group-hover:text-white">
                       Get Started
                     </span>
                     <FaCircleArrowRight
-                      size={20}
+                      size={28}
                       className="text-black transition-colors duration-300 group-hover:text-white"
                     />
                   </button>
@@ -223,6 +226,88 @@ const Home = () => {
         </div>
 
         {/* Home Section Part 2 */}
+        <div className="flex flex-col items-center w-full max-w-7xl mx-auto mt-20 md:mt-14 px-4 md:px-8">
+          {/* Text Section */}
+          <div
+            className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-12"
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="true"
+            data-aos-anchor-placement="top-center"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-center md:text-left leading-[1.3] ">
+              New Skills with CourseCo. <br /> A Detailed Look at Our Curriculum
+            </h2>
+            {/* Button Section */}
+            <div className="flex flex-col gap-3 items-center md:items-start mt-5 md:mt-0 text-center md:text-left">
+              <p className="text-sm md:text-base font-medium">
+                With real-world projects to create and <br /> online classes
+                that fit a busy routine
+              </p>
+              <Link to="/register">
+                <button className="bg-black flex items-center gap-3 px-5 py-2 text-base font-medium text-white border border-black rounded-full overflow-hidden group hover:bg-blue-600 transition duration-300">
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                    Get Started
+                  </span>
+                  <FaCircleArrowRight size={24} className="text-white" />
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Box Section */}
+          <div
+            className="flex flex-col md:flex-row justify-center gap-6 md:gap-10 pt-10 w-full"
+            data-aos="zoom-in"
+            data-aos-offset="50"
+            data-aos-delay="100"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+          >
+            {/* Box 1 */}
+            <div className="w-full sm:max-w-sm bg-[#AEE5FF] p-6 rounded-3xl shadow-md">
+              <div className="bg-[#A3A3F5] w-12 h-12 rounded-full flex justify-center items-center mt-2">
+                <LuPyramid size={30} className="text-white" />
+              </div>
+              <h3 className="text-lg md:text-2xl font-bold pt-4">
+                Learn at your own pace with hands-on creative classes.
+              </h3>
+              <p className="text-sm md:text-base font-medium pt-4">
+                Looking to expand your skills and explore your creativity? Our
+                hands-on creative classes are the perfect way to learn at your
+                own pace and discover new talents.
+              </p>
+            </div>
+
+            {/* Box 2 */}
+            <div className="w-full sm:max-w-lg bg-[#C3FFD2] p-6 rounded-3xl shadow-md">
+              <div className="bg-[#FF7C77] w-12 h-12 rounded-full flex justify-center items-center mt-2">
+                <CiWavePulse1 size={30} className="text-white" />
+              </div>
+              <h3 className="text-lg md:text-2xl font-bold pt-4">
+                CourseCo teachers are everyday creatives and professionals who
+                want to share their passion.
+              </h3>
+              <p className="text-sm md:text-base font-medium pt-4">
+                At CourseCo, we believe that everyone has something to teach and
+                share with the world. Our teachers are not just experts in their
+                field; they are also passionate about teaching and helping
+                others discover their own creativity. They take the time to get
+                to know their students and tailor their instruction to meet
+                their individual needs and goals.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Home Section Part 3 */}
         <div className="flex flex-col items-center w-full max-w-7xl mx-auto mt-5 md:mt-14">
           <h2 className="text-2xl md:text-4xl font-bold text-center pt-10">
             Why Choose CourseCo?
@@ -356,7 +441,7 @@ const Home = () => {
           <hr className="w-full max-w-7xl mx-auto my-7 md:my-10 border border-gray-200" />
         </div>
 
-        {/* Home Section Part 3 */}
+        {/* Home Section Part 4 */}
         <div className="w-full max-w-7xl mx-auto mt-5 md:mt-14 pb-10 md:pb-20">
           <h2 className="text-2xl md:text-4xl font-bold text-center">
             A Skill-Building Journey <br />

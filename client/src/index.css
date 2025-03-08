@@ -13,19 +13,19 @@
 
 .navbar{
   font-family: "Comic Neue", cursive;
-  font-weight: 600;
+  font-weight: 800;
   font-style: normal;
 }
 
 .home{
   font-family: "Comic Neue", cursive;
-  font-weight: 400;
+  font-weight: 800;
   font-style: normal;
 }
 
 .about{
   font-family: "Nerko One", cursive;
-    font-weight: 400;
+    font-weight: 800;
     font-style: normal;
 }
 
@@ -34,7 +34,7 @@
 .services{
   font-family: "SUSE", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 700;
+  font-weight: 1000;
   font-style: normal;
 }
 
@@ -49,7 +49,7 @@
 
 .menu-link{
   font-family: "Comic Neue", cursive;
-  font-weight: 800;
+  font-weight: 1000;
   font-style: normal;
 }
 
